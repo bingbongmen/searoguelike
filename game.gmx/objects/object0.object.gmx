@@ -25,11 +25,11 @@
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>mouse.x</string>
+            <string>mouse_x</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>mouse.y</string>
+            <string>mouse_y</string>
           </argument>
           <argument>
             <kind>0</kind>
