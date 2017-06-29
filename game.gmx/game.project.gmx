@@ -12,15 +12,14 @@
     <sprite>sprites\spr_Sand</sprite>
     <sprite>sprites\spr_Water</sprite>
   </sprites>
-  <backgrounds name="background">
-    <background>background\bg_Water</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts"/>
   <objects name="objects">
     <object>objects\obj_Player</object>
     <object>objects\obj_Target</object>
     <object>objects\obj_Target2</object>
+    <object>objects\obj_Mapcontrol</object>
     <object>objects\obj_Islandcontrol</object>
   </objects>
   <rooms name="rooms">
