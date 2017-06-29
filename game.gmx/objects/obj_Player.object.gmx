@@ -11,26 +11,6 @@
     <event eventtype="0" enumb="0">
       <action>
         <libid>1</libid>
-        <id>524</id>
-        <kind>0</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_color</functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>13</kind>
-            <string>65280</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
         <id>603</id>
         <kind>7</kind>
         <userelative>0</userelative>
@@ -45,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>obj_Player.moveSpeed=3;
+            <string>moveSpeed=3;
+WeaponRange = 300;
 </string>
           </argument>
         </arguments>
@@ -70,6 +51,8 @@
             <kind>1</kind>
             <string>image_angle = point_direction(x, y, mouse_x, mouse_y);
 
+aimPointY=cos(degtorad(image_angle+90))*WeaponRange+self.y;
+aimPointX=sin(degtorad(image_angle+90))*WeaponRange+self.x;
 moveLeft = keyboard_check(ord('A'));
 moveRight = keyboard_check(ord('D'));
 moveUp = keyboard_check(ord('W'));
@@ -79,7 +62,7 @@ obj_Player.x+=(moveRight-moveLeft)*obj_Player.moveSpeed;
 obj_Player.y+=(moveDown-moveUp)*obj_Player.moveSpeed;
 
 if device_mouse_check_button(0, mb_left){
-    target = collision_line(obj_Player.x, obj_Player.y, mouse_x, mouse_y, obj_Target, false, false);
+    target = collision_line(obj_Player.x, obj_Player.y, aimPointX, aimPointY, obj_Target, false, false);
     with(target){
         instance_destroy();
     }
@@ -107,13 +90,13 @@ if device_mouse_check_button(0, mb_left){
       </action>
       <action>
         <libid>1</libid>
-        <id>515</id>
+        <id>513</id>
         <kind>0</kind>
         <userelative>-1</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
         <exetype>1</exetype>
-        <functionname>action_draw_arrow</functionname>
+        <functionname>action_draw_line</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
@@ -121,23 +104,19 @@ if device_mouse_check_button(0, mb_left){
         <arguments>
           <argument>
             <kind>0</kind>
-            <string>obj_Player.x</string>
+            <string>self.x</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>obj_Player.y</string>
+            <string>self.y</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>mouse_x</string>
+            <string>aimPointX</string>
           </argument>
           <argument>
             <kind>0</kind>
-            <string>mouse_y</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>12</string>
+            <string>aimPointY</string>
           </argument>
         </arguments>
       </action>

@@ -27,13 +27,34 @@
             <kind>1</kind>
             <string>sizeX=16;
 sizeY=16;
+
 for(i=0; i&lt;16; i++)
 {
-for(j=0; j&lt;16; j++)
-{
-layout[i,j]= irandom(1);
+    for(j=0; j&lt;16; j++)
+    {
+        rand_LandChance = random(100);
+        if(rand_LandChance&lt;=75)
+        {
+            layout[i,j]=1;
+            rand_TargetChance = random(100);
+            if(rand_TargetChance &gt;= 95 &amp;&amp; rand_TargetChance &lt; 98)
+                {
+                instance_create((self.x-sizeX*32/2)+32*i,(self.y-sizeY*32/2)+32*j,obj_Target)
+                }
+            if(rand_TargetChance &gt;= 98 &amp;&amp; rand_TargetChance &lt;= 100)
+                {
+                instance_create((self.x-sizeX*32/2)+32*i,(self.y-sizeY*32/2)+32*j,obj_Target2)
+                }
+                
+        }
+        else
+        {
+            layout[i,j]=0;
+        }
+    }
 }
-}
+
+
 
 </string>
           </argument>
