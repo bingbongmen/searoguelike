@@ -4,20 +4,23 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound">
-    <sound>sound\sound0</sound>
-  </sounds>
+  <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\sprite0</sprite>
-    <sprite>sprites\sprite1</sprite>
+    <sprite>sprites\spr_Player</sprite>
+    <sprite>sprites\spr_Target</sprite>
+    <sprite>sprites\spr_Target2</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\bg_Meme</background>
+  </backgrounds>
   <paths name="paths"/>
   <objects name="objects">
-    <object>objects\object0</object>
+    <object>objects\obj_Player</object>
+    <object>objects\obj_Target</object>
+    <object>objects\obj_Target2</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\room0</room>
+    <room>rooms\rm_Test</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
