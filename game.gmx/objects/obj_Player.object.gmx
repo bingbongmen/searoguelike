@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeed=3;
+            <string>moveSpeed=15;
 WeaponRange = 300;
 </string>
           </argument>

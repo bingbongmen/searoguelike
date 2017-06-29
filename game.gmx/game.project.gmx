@@ -12,7 +12,9 @@
     <sprite>sprites\spr_Sand</sprite>
     <sprite>sprites\spr_Water</sprite>
   </sprites>
-  <backgrounds name="background"/>
+  <backgrounds name="background">
+    <background>background\background1</background>
+  </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts"/>
   <objects name="objects">
