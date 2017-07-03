@@ -3,7 +3,7 @@
   <spriteName>spr_Player</spriteName>
   <solid>-1</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-1</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -49,18 +49,24 @@ WeaponRange = 300;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>image_angle = point_direction(x, y, mouse_x, mouse_y);
+            <string>//image rotation
+image_angle = point_direction(x, y, mouse_x, mouse_y);
 
-aimPointY=cos(degtorad(image_angle+90))*WeaponRange+self.y;
-aimPointX=sin(degtorad(image_angle+90))*WeaponRange+self.x;
-moveLeft = keyboard_check(ord('A'));
-moveRight = keyboard_check(ord('D'));
-moveUp = keyboard_check(ord('W'));
-moveDown = keyboard_check(ord('S'));
+//movement
+obj_Player.x+=(keyboard_check(ord('D'))-keyboard_check(ord('A')))*obj_Player.moveSpeed;
+obj_Player.y+=(keyboard_check(ord('S'))-keyboard_check(ord('W')))*obj_Player.moveSpeed;
 
-obj_Player.x+=(moveRight-moveLeft)*obj_Player.moveSpeed;
-obj_Player.y+=(moveDown-moveUp)*obj_Player.moveSpeed;
+//hitscan aming
+aimPointY=cos(degtorad(image_angle+90))*WeaponRange+y;
+aimPointX=sin(degtorad(image_angle+90))*WeaponRange+x;
 
+
+
+//paning
+view_xview = x-view_wview/2;
+view_yview = y-view_hview/2;
+
+//hitscan cc
 if device_mouse_check_button(0, mb_left){
     target = collision_line(obj_Player.x, obj_Player.y, aimPointX, aimPointY, obj_Target, false, false);
     with(target){
@@ -76,47 +82,23 @@ if device_mouse_check_button(0, mb_left){
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
-        <id>500</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
-        <useapplyto>0</useapplyto>
+        <useapplyto>-1</useapplyto>
         <exetype>2</exetype>
         <functionname></functionname>
-        <codestring>draw_self();</codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>513</id>
-        <kind>0</kind>
-        <userelative>-1</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_draw_line</functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
         <arguments>
           <argument>
-            <kind>0</kind>
-            <string>self.x</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>self.y</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>aimPointX</string>
-          </argument>
-          <argument>
-            <kind>0</kind>
-            <string>aimPointY</string>
+            <kind>1</kind>
+            <string>draw_line(x,y,aimPointX,aimPointY);
+draw_self();
+</string>
           </argument>
         </arguments>
       </action>
