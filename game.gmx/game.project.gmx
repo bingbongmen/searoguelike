@@ -11,7 +11,6 @@
     <sprite>sprites\spr_Target2</sprite>
     <sprite>sprites\spr_Sand</sprite>
     <sprite>sprites\spr_Water</sprite>
-    <sprite>sprites\sprite5</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background1</background>
