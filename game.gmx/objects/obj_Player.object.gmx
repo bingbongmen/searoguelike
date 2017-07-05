@@ -25,7 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeed=15;
+            <string>moveSpeed=8;
 WeaponRange = 300;
 </string>
           </argument>
@@ -96,7 +96,8 @@ if device_mouse_check_button(0, mb_left){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_line(x,y,aimPointX,aimPointY);
+            <string>draw_set_color(c_black);
+draw_line(x,y,aimPointX,aimPointY);
 draw_self();
 </string>
           </argument>
