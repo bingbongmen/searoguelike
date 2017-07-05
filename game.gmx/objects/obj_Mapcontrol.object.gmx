@@ -26,9 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>globalvar chunkSize, blockSize, seed, despawnRadius, spawnRadius, chunkId;
+randomize();
 chunkSize=16;
 blockSize=16;
-seed=32667623;
+seed = irandom(9999999);
 despawnRadius = 300;
 spawnRadius = 200;
 chunkId = ds_map_create();
