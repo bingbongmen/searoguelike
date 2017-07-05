@@ -9,9 +9,6 @@
     <sprite>sprites\spr_Player</sprite>
     <sprite>sprites\spr_Target</sprite>
     <sprite>sprites\spr_Target2</sprite>
-    <sprite>sprites\spr_Sand</sprite>
-    <sprite>sprites\spr_Water</sprite>
-    <sprite>sprites\sprite5</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
