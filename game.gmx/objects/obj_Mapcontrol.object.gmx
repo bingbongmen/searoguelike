@@ -25,20 +25,23 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar chunkSize, blockSize, seed, despawnRadius, spawnRadius;
-chunkSize=8;
-blockSize=8;
+            <string>globalvar chunkSize, blockSize, seed, despawnRadius, spawnRadius, chunkId;
+chunkSize=16;
+blockSize=16;
 seed=32667623;
 despawnRadius = 300;
 spawnRadius = 200;
-
+chunkId = ds_map_create();
 for (var i=0; i&lt;=room_width; i+=chunkSize*blockSize)
 {
     for (var j=0; j&lt;=room_width; j+=chunkSize*blockSize)
     {
-        instance_create(i,j,obj_Chunk)
+        
+        var tempId = instance_create(i,j,obj_Chunk);
+        ds_map_add(chunkId,(string(i/(chunkSize*blockSize))+","+string(j/(chunkSize*blockSize))),tempId);
     }
 }
+instance_create(0,0,obj_Player);
 </string>
           </argument>
         </arguments>

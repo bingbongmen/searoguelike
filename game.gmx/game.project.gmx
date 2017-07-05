@@ -29,6 +29,8 @@
         <script>scripts\_pn_noise3d.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\chunkCC.gml</script>
+    <script>scripts\move.gml</script>
   </scripts>
   <objects name="objects">
     <object>objects\obj_Player</object>
