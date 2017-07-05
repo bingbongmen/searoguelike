@@ -72,6 +72,7 @@
     <object>objects\obj_Target</object>
     <object>objects\obj_Target2</object>
     <object>objects\obj_Mapcontrol</object>
+    <object>objects\obj_Chunk</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_Test</room>

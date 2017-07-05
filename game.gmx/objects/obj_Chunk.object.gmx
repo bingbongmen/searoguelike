@@ -25,19 +25,76 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar chunkSizeX, chunkSizeY, blockSize, seed;
-chunkSizeX=32;
-chunkSizeY=32;
-blockSize=16;
-seed=32667623;
-
-for (var i=0; i&lt;=room_width; i+=chunkSizeX*blockSize)
-{
-    for (var j=0; j&lt;=room_width; j+=chunkSizeY*blockSize)
+            <string>waterLevel=160;
+sandLevel=170
+landLevel=255
+testGrid = ds_grid_create(chunkSizeX,chunkSizeY);
+scr_pn_init();
+scr_pn_set_seed(seed);
+for(i=0; i&lt;chunkSizeX; i++)
     {
-        instance_create(i,j,obj_Chunk)
+        for(j=0; j&lt;chunkSizeY; j++)
+        {
+          var value=scr_pn_noise(0,255,1,1,.025,x/blockSize+i,y/blockSize+j);
+          
+          if (value &lt;= waterLevel)
+            {   
+            testGrid[i,j]=0;
+            }    
+          else       
+          if (value &lt;= sandLevel)
+            {   
+            testGrid[i,j]=1;
+            }      
+          else   
+          if (value &lt;= landLevel)
+          {
+            testGrid[i,j]=2;
+          }
+        }
     }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for(i=0;i&lt;chunkSizeX;i++)
+{
+for(j=0;j&lt;chunkSizeY;j++)
+{
+if (testGrid[i,j] == 0)
+{
+draw_set_color(c_blue);
 }
+else
+if (testGrid[i,j] == 1){
+draw_set_color(c_yellow);
+}
+else
+if (testGrid[i,j] == 2){
+draw_set_color(c_green);
+}
+draw_rectangle(x+i*blockSize,y+j*blockSize,x+(i+1)*blockSize,y+(j+1)*blockSize,0);
+}
+}
+
 </string>
           </argument>
         </arguments>
