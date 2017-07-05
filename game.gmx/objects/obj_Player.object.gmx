@@ -25,7 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>moveSpeed=8;
+            <string>x=room_width/2;
+y=room_height/2;
+
+moveSpeed=8;
 WeaponRange = 300;
 </string>
           </argument>

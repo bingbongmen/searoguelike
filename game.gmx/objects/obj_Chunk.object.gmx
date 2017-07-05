@@ -28,12 +28,13 @@
             <string>waterLevel=160;
 sandLevel=170
 landLevel=255
-testGrid = ds_grid_create(chunkSizeX,chunkSizeY);
+surf = noone;
+testGrid = ds_grid_create(chunkSize,chunkSize);
 scr_pn_init();
 scr_pn_set_seed(seed);
-for(i=0; i&lt;chunkSizeX; i++)
+for(i=0; i&lt;chunkSize; i++)
     {
-        for(j=0; j&lt;chunkSizeY; j++)
+        for(j=0; j&lt;chunkSize; j++)
         {
           var value=scr_pn_noise(0,255,1,1,.025,x/blockSize+i,y/blockSize+j);
           
@@ -58,6 +59,34 @@ for(i=0; i&lt;chunkSizeX; i++)
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//if(point_distance(obj_Player.x,obj_Player.y,x+chunkSize*blockSize/2,y+chunkSize*blockSize/2)&gt;despawnRadius)
+//{
+    //ds_grid_destroy(testGrid)
+    //instance_destroy()
+    
+//}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
@@ -75,26 +104,33 @@ for(i=0; i&lt;chunkSizeX; i++)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(i=0;i&lt;chunkSizeX;i++)
+            <string>if !surface_exists(surf)
 {
-for(j=0;j&lt;chunkSizeY;j++)
-{
-if (testGrid[i,j] == 0)
-{
-draw_set_color(c_blue);
+   surf = surface_create(chunkSize*blockSize, chunkSize*blockSize);
+    surface_set_target(surf);
+    for(i=0;i&lt;chunkSize;i++)
+    {
+        for(j=0;j&lt;chunkSize;j++)
+        {
+            if (testGrid[i,j] == 0)
+            {
+                draw_set_color(c_blue);
+            }
+            else if (testGrid[i,j] == 1){
+                draw_set_color(c_yellow);
+            }
+            else if (testGrid[i,j] == 2){
+                draw_set_color(c_green);
+            }
+        draw_rectangle(i*blockSize,j*blockSize,(i+1)*blockSize,(j+1)*blockSize,0);
+        }
+    }
+surface_reset_target();
 }
 else
-if (testGrid[i,j] == 1){
-draw_set_color(c_yellow);
+{
+    draw_surface(surf,x,y)
 }
-else
-if (testGrid[i,j] == 2){
-draw_set_color(c_green);
-}
-draw_rectangle(x+i*blockSize,y+j*blockSize,x+(i+1)*blockSize,y+(j+1)*blockSize,0);
-}
-}
-
 </string>
           </argument>
         </arguments>

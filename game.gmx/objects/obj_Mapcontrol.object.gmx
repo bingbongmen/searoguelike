@@ -25,15 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>globalvar chunkSizeX, chunkSizeY, blockSize, seed;
-chunkSizeX=32;
-chunkSizeY=32;
-blockSize=16;
+            <string>globalvar chunkSize, blockSize, seed, despawnRadius, spawnRadius;
+chunkSize=8;
+blockSize=8;
 seed=32667623;
+despawnRadius = 300;
+spawnRadius = 200;
 
-for (var i=0; i&lt;=room_width; i+=chunkSizeX*blockSize)
+for (var i=0; i&lt;=room_width; i+=chunkSize*blockSize)
 {
-    for (var j=0; j&lt;=room_width; j+=chunkSizeY*blockSize)
+    for (var j=0; j&lt;=room_width; j+=chunkSize*blockSize)
     {
         instance_create(i,j,obj_Chunk)
     }

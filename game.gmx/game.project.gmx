@@ -13,26 +13,9 @@
     <sprite>sprites\spr_Water</sprite>
     <sprite>sprites\sprite5</sprite>
   </sprites>
-  <backgrounds name="background">
-    <background>background\background1</background>
-    <background>background\bg_index</background>
-  </backgrounds>
+  <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\scrpt_mapgen.gml</script>
-    <scripts name="improved noise - seedless">
-      <script>scripts\scr_in_init.gml</script>
-      <script>scripts\scr_in_noise.gml</script>
-      <script>scripts\scr_in_fast_noise.gml</script>
-      <scripts name="private">
-        <script>scripts\_in_fade.gml</script>
-        <script>scripts\_in_grad_old.gml</script>
-        <script>scripts\_in_grad.gml</script>
-        <script>scripts\_in_lerp.gml</script>
-        <script>scripts\_in_noise.gml</script>
-        <script>scripts\_in_fast_noise.gml</script>
-      </scripts>
-    </scripts>
     <scripts name="perlin noise">
       <script>scripts\scr_pn_init.gml</script>
       <script>scripts\scr_pn_set_seed.gml</script>
@@ -47,23 +30,6 @@
         <script>scripts\_pn_noise1d.gml</script>
         <script>scripts\_pn_noise2d.gml</script>
         <script>scripts\_pn_noise3d.gml</script>
-      </scripts>
-    </scripts>
-    <scripts name="simplex noise">
-      <script>scripts\scr_sn_init.gml</script>
-      <script>scripts\scr_sn_set_seed.gml</script>
-      <script>scripts\scr_sn_get_seed.gml</script>
-      <script>scripts\scr_sn_noise.gml</script>
-      <scripts name="private">
-        <script>scripts\_sn_generate_perm.gml</script>
-        <script>scripts\_scr_sn_grad3.gml</script>
-        <script>scripts\_scr_sn_grad4.gml</script>
-        <script>scripts\_sn_noise2d.gml</script>
-        <script>scripts\_sn_noise3d.gml</script>
-        <script>scripts\_sn_noise4d.gml</script>
-        <script>scripts\_sn_dot2.gml</script>
-        <script>scripts\_sn_dot3.gml</script>
-        <script>scripts\_sn_dot4.gml</script>
       </scripts>
     </scripts>
   </scripts>
