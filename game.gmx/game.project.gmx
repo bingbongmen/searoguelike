@@ -31,6 +31,15 @@
     </scripts>
     <script>scripts\chunkCC.gml</script>
     <script>scripts\move.gml</script>
+    <scripts name="chunks">
+      <script>scripts\getKey.gml</script>
+      <script>scripts\inDespawnRange.gml</script>
+      <script>scripts\inSpawnRange.gml</script>
+      <script>scripts\unloadChunk.gml</script>
+      <script>scripts\loadChunk.gml</script>
+      <script>scripts\spawnChunks.gml</script>
+      <script>scripts\chunkLoaded.gml</script>
+    </scripts>
   </scripts>
   <objects name="objects">
     <object>objects\obj_Player</object>
