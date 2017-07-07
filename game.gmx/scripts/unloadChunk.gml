@@ -1,2 +1,2 @@
-ds_map_delete(chunkLoadedSet,AgetKey(x,y));
+ds_map_delete(chunkLoadedSet,getKey(x,y));
 
