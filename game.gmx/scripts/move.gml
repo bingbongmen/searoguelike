@@ -9,6 +9,7 @@ if(chunkCC(x+deltaX,y,block)){
     }
     deltaX =0;
 }
+
 x+=deltaX;
 
 if(chunkCC(x,y+deltaY,block)){
@@ -17,4 +18,5 @@ if(chunkCC(x,y+deltaY,block)){
     }
     deltaY = 0;
 }
+
 y+=deltaY;

@@ -25,8 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x=room_width/2;
-y=room_height/2;
+            <string>x=100000;
+y=100000;
 
 moveSpeed=16;
 WeaponRange = 300;
@@ -52,7 +52,8 @@ WeaponRange = 300;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//image rotation
+            <string>spawnChunks();
+//image rotation
 image_angle = point_direction(x, y, mouse_x, mouse_y);
 
 //movement

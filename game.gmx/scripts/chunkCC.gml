@@ -8,20 +8,21 @@ var yp = y;
 x = xx;
 y = yy;
 
-var chunkTop = bbox_top div (chunkSize*blockSize);
-var chunkBottom = bbox_bottom div (chunkSize*blockSize);
-var chunkLeft = bbox_left div (chunkSize*blockSize);
-var chunkRight = bbox_right div (chunkSize*blockSize);
-var gridTop = (bbox_top - chunkTop*chunkSize*blockSize)div blockSize;
-var gridBottom = (bbox_bottom - chunkBottom*chunkSize*blockSize)div blockSize;
-var gridLeft = (bbox_left - chunkLeft*chunkSize*blockSize)div blockSize;
-var gridRight = (bbox_right - chunkRight*chunkSize*blockSize)div blockSize;
 
-var x_meeting = (ds_map_find_value(chunkId,string(chunkRight)+","+string(chunkTop)).testGrid[gridRight,gridTop]=blockType)||
-                (ds_map_find_value(chunkId,string(chunkLeft)+","+string(chunkTop)).testGrid[gridLeft,gridTop]=blockType);
+var chunkTop = bbox_top - (bbox_top % (chunkSize*blockSize));
+var chunkBottom =bbox_bottom - (bbox_bottom % (chunkSize*blockSize));
+var chunkLeft = bbox_left - (bbox_left % (chunkSize*blockSize));
+var chunkRight = bbox_right - (bbox_right % (chunkSize*blockSize));
+var gridTop =(bbox_top - chunkTop)div blockSize;
+var gridBottom = (bbox_bottom - chunkBottom)div blockSize;
+var gridLeft = (bbox_left - chunkLeft)div blockSize;
+var gridRight = (bbox_right - chunkRight)div blockSize;
+
+var x_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkTop)).grid[gridRight,gridTop]=blockType)||
+                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkTop)).grid[gridLeft,gridTop]=blockType);
                 
-var y_meeting = (ds_map_find_value(chunkId,string(chunkRight)+","+string(chunkBottom)).testGrid[gridRight,gridBottom]=blockType)||
-                (ds_map_find_value(chunkId,string(chunkLeft)+","+string(chunkBottom)).testGrid[gridLeft,gridBottom]=blockType);
+var y_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkBottom)).grid[gridRight,gridBottom]=blockType)||
+                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkBottom)).grid[gridLeft,gridBottom]=blockType);
                 
 x = xp;
 y = yp;
