@@ -18,11 +18,11 @@ var gridBottom = (bbox_bottom - chunkBottom)div blockSize;
 var gridLeft = (bbox_left - chunkLeft)div blockSize;
 var gridRight = (bbox_right - chunkRight)div blockSize;
 
-var x_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkTop)).grid[gridRight,gridTop]=blockType)||
-                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkTop)).grid[gridLeft,gridTop]=blockType);
+var x_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkTop)).grid[# gridRight,gridTop]=blockType)||
+                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkTop)).grid[# gridLeft,gridTop]=blockType);
                 
-var y_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkBottom)).grid[gridRight,gridBottom]=blockType)||
-                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkBottom)).grid[gridLeft,gridBottom]=blockType);
+var y_meeting = (ds_map_find_value(chunkLoadedSet,getKey(chunkRight,chunkBottom)).grid[# gridRight,gridBottom]=blockType)||
+                (ds_map_find_value(chunkLoadedSet,getKey(chunkLeft,chunkBottom)).grid[# gridLeft,gridBottom]=blockType);
                 
 x = xp;
 y = yp;

@@ -28,7 +28,7 @@
             <string>x=100000;
 y=100000;
 
-moveSpeed=16;
+moveSpeed=4;
 WeaponRange = 300;
 </string>
           </argument>
